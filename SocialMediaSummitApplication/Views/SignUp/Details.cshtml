@@ -1,4 +1,5 @@
-﻿@model SocialMediaSummitApplication.Models.SignUp
+﻿@using SocialMediaSummitApplication.Models
+@model SocialMediaSummitApplication.Models.SignUp
 
 @{
     ViewBag.Title = "Details";
@@ -49,6 +50,16 @@
         <dd>
             @Html.DisplayFor(model => model.AppName)
         </dd>
+
+        @if (Model.FilePaths.Any(f => f.FileType == FileType.Photo))
+        {
+            <dt>
+                Photo
+            </dt>
+            <dd>
+                <img src="~/Logos/@Model.FilePaths.First(f => f.FileType == FileType.Photo).FileName" alt="" />
+            </dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.AppCategory)
