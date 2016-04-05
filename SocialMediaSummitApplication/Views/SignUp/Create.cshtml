@@ -7,12 +7,12 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "SignUp", null, FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>SignUp</h4>
+        <h4>Register your App in one step:-</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -40,12 +40,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Email, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
             </div>
         </div>
+
+        <h4>App Details</h4>
+        <hr />
 
         <div class="form-group">
             @Html.LabelFor(model => model.AppName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -56,10 +59,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AppCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AppCategory, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.AppCategory, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AppCategory, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.AppCategory, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.AppCategory, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("App Logo", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" id="Photo" />
             </div>
         </div>
 
@@ -103,9 +112,9 @@
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

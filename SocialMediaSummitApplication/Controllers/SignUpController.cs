@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,10 +47,20 @@ namespace SocialMediaSummitApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SignUpId,SignUpCategory,Name,Location,Email,AppId,AppName,AppCategory,AppDesc,HostUrl1,HostUrl2,HostUrl3")] SignUp signUp)
+        public ActionResult Create([Bind(Include = "SignUpId,SignUpCategory,Name,Location,Email,AppId,AppName,AppCategory,AppDesc,HostUrl1,HostUrl2,HostUrl3")] SignUp signUp, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var photo = new FilePath
+                    {
+                        FileName = Guid.NewGuid() + Path.GetFileName(upload.FileName),
+                        FileType = FileType.Photo
+                    };
+                    signUp.FilePaths = new List<FilePath> { photo };
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/Logos"), photo.FileName));
+                }
                 db.SignUps.Add(signUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
