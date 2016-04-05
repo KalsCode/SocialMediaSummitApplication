@@ -1,0 +1,98 @@
+﻿@model SocialMediaSummitApplication.Models.SignUp
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SignUp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SignUpCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignUpCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostUrl1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostUrl1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostUrl2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostUrl2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostUrl3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostUrl3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SignUpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
