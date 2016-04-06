@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using SocialMediaSummitApplication.Models;
 
 namespace SocialMediaSummitApplication.Controllers
@@ -88,13 +90,31 @@ namespace SocialMediaSummitApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SignUpId,SignUpCategory,Name,Location,Email,AppId,AppName,AppCategory,AppDesc,HostUrl1,HostUrl2,HostUrl3")] SignUp signUp)
+        public ActionResult Edit([Bind(Include = "SignUpId,SignUpCategory,Name,Location,Email,AppId,AppName,AppCategory,AppDesc,HostUrl1,HostUrl2,HostUrl3")] SignUp signUp, FileUpload image)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(signUp).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    //var uploaded = db.SignUps.Find(typeof (FilePath), image);
+                    //db.SignUps.Remove(uploaded);
+
+                    var photo = new FilePath()
+                    {
+                        FileName = Guid.NewGuid() + Path.GetFileName(image.FileName),
+                        FileType = FileType.Photo
+                    };
+
+                    signUp.FilePaths = new List<FilePath> { photo };
+                    image.SaveAs(Path.Combine(Server.MapPath("~/Logos"), photo.FileName));
+                    db.Entry(signUp).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (OptimisticConcurrencyException ex)
+            {
+                ModelState.AddModelError("Optimistic Concurrency", ex.Source);
             }
             return View(signUp);
         }
