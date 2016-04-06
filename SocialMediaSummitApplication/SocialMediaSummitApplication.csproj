@@ -190,11 +190,6 @@
     <Content Include="images\google logo.jpg" />
     <Content Include="images\ms logo.png" />
     <Content Include="images\speke-resort-Logo.png" />
-    <Content Include="slides\dining-lake-terrace-speke-resort.jpg" />
-    <Content Include="slides\lake-terrace-speke-resort.jpg" />
-    <Content Include="slides\speke-resort-munyonyo-birds-view.jpg" />
-    <Content Include="slides\speke-resort-munyonyo-entrance.jpg" />
-    <Content Include="slides\speke-resort.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -215,6 +210,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="slides\dining-lake-terrace-speke-resort.jpg" />
+    <Content Include="slides\lake-terrace-speke-resort.jpg" />
+    <Content Include="slides\speke-resort-munyonyo-birds-view.jpg" />
+    <Content Include="slides\speke-resort-munyonyo-entrance.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
