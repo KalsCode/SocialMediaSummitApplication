@@ -10,98 +10,100 @@
 <div>
     <h4>SignUp</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SignUpCategory)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SignUpCategory)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AppName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AppName)
-        </dd>
-
-        @if (Model.FilePaths.Any(f => f.FileType == FileType.Photo))
-        {
+    <div>
+        <dl class="dl-horizontal">
             <dt>
-                Photo
+                @Html.DisplayNameFor(model => model.SignUpCategory)
             </dt>
+
             <dd>
-                <img src="~/Logos/@Model.FilePaths.First(f => f.FileType == FileType.Photo).FileName" alt="" />
+                @Html.DisplayFor(model => model.SignUpCategory)
             </dd>
-        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AppCategory)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AppCategory)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AppDesc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AppDesc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HostUrl1)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HostUrl1)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HostUrl2)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AppName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HostUrl2)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AppName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HostUrl3)
-        </dt>
+            @if (Model.FilePaths.Any(f => f.FileType == FileType.Photo))
+            {
+                <dt>
+                    Photo
+                </dt>
+                <dd>
+                    <img src="~/Logos/@Model.FilePaths.First(f => f.FileType == FileType.Photo).FileName" alt="" />
+                </dd>
+            }
 
-        <dd>
-            @Html.DisplayFor(model => model.HostUrl3)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AppCategory)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.AppCategory)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AppDesc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppDesc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HostUrl1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HostUrl1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HostUrl2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HostUrl2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HostUrl3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HostUrl3)
+            </dd>
+
+        </dl>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.SignUpId }) |
